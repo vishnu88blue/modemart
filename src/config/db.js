@@ -13,8 +13,6 @@ async function dbConnect() {
   if (!catched.promise) {
     const opts = {
       bufferCommands: false,
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
     };
 
     catched.promise = mongoose.connect(`${process.env.MONGODB_URI}/ModernMart`, opts).then((mongoose) => {
