@@ -14,16 +14,16 @@ type ProductType = {
   _id: string;
   name: string;
   offerPrice: number;
-  [key: string]: any; // Add more if needed
+  [key: string]: unknown; // Add more if needed
 };
 
 type UserType = {
   name: string;
   email: string;
-  [key: string]: any; // Add more if needed
+  [key: string]: unknown; // Add more if needed
 };
 type AppContextType = {
-  user: any;
+  user: unknown;
   currency: string | undefined;
   router: ReturnType<typeof useRouter>;
 
@@ -77,7 +77,7 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
   };
 
   const addToCart = async (itemId: string) => {
-    let cartData = structuredClone(cartItems);
+    const cartData = structuredClone(cartItems);
     if (cartData[itemId]) {
       cartData[itemId] += 1;
     } else {
@@ -87,7 +87,7 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
   };
 
   const updateCartQuantity = async (itemId: string, quantity: number) => {
-    let cartData = structuredClone(cartItems);
+    const cartData = structuredClone(cartItems);
     if (quantity === 0) {
       delete cartData[itemId];
     } else {
@@ -109,7 +109,7 @@ export const AppContextProvider = ({ children }: AppContextProviderProps) => {
   const getCartAmount = () => {
     let totalAmount = 0;
     for (const items in cartItems) {
-      let itemInfo = products.find((product) => product._id === items);
+      const itemInfo = products.find((product) => product._id === items);
       if (itemInfo) {
         totalAmount += itemInfo.offerPrice * cartItems[items];
       }

@@ -4,7 +4,7 @@ import { assets } from '@/assets/assets';
 import Link from 'next/link';
 import { useAppContext } from '@/context/AppContext';
 import Image from 'next/image';
-import { SignInButton, SignUpButton, UserButton } from '@clerk/nextjs';
+import { SignInButton, UserButton } from '@clerk/nextjs';
 import { ShoppingCart } from 'lucide-react';
 
 const Navbar = () => {
