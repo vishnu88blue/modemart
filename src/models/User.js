@@ -11,7 +11,10 @@ const userSchema = new mongoose.Schema({
   },
   email: {
     type: String,
-    required: true,
+    unique: true,
+  },
+  userid:{
+    type: String,
     unique: true,
   },
   imageUrl: {
@@ -19,7 +22,8 @@ const userSchema = new mongoose.Schema({
     required: true,
   },
   cartItems: {
-    type: Boolean,
+     type: Map,
+    of: Number,
     default: {},
   },
 }, {
